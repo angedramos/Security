@@ -4,6 +4,8 @@ require_once 'configSecure.php';
     // while($row = $queryResult->fetch(PDO::FETCH_ASSOC)){
     //     var_dump($row);
     // }
+    // echo strip_tags($pdo,'<script>');
+    // htmlspecialchars($queryResult, ENT_QUOTES, 'UTF-8');
 ?>
 <html>
 <head>
