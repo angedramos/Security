@@ -14,7 +14,7 @@ require_once 'config.php';
 </head>
 <style>
     body {
-      background-image: url('fondo.jpg');
+      background-image: url('fondo3.png');
     }
     </style>
 <body>

@@ -7,13 +7,19 @@ require_once 'config.php';
             die('Connection Error');
         }
 
-        $title = $_POST['title'];
-        $description = $_POST['description'];
+        if (!empty($_POST)){
+            $title = $_POST['title'];
+            $description = $_POST['description'];
 
-        $querynew = "SELECT * FROM `oldproducts` where oldproducts.title = '{$title}' and oldproducts.description = '{$description}' ;";
-        $resultnew = mysqli_query($mysqli, $querynew); 
-        $resultnew=mysqli_multi_query($mysqli, $querynew);
-        $data = mysqli_fetch_all($resultnew);
+            $sql = "INSERT INTO oldproducts(title, description) VALUES (:title, :description)";
+            $query = $pdo->prepare($sql);
+            $result = $query->execute(['title'=> $title,  'description' => $description]);
+
+            $querynew = "SELECT * FROM `oldproducts` where oldproducts.title = '{$title}' and oldproducts.description = '{$description}' ;";
+            // $resultnew = mysqli_query($mysqli, $querynew); 
+            $resultnew=mysqli_multi_query($mysqli, $querynew);
+        }
+
 
  ?>
 <html lang="en">
@@ -23,6 +29,12 @@ require_once 'config.php';
 
         <link rel="stylesheet" href="style.css">
     </head>
+    <style>
+    body {
+      background-position: inherit;
+      background-image: url('fondo3.png');
+    }
+    </style>
     <body>
         <form action="AddProduct.php" method="post">
         <section class="product-register">
