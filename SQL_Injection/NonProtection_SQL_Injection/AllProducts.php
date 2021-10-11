@@ -1,6 +1,6 @@
 <?php
 require_once 'config.php';
-    $queryResult = $pdo->query("SELECT * FROM oldproducts");  
+    $queryResult = $pdo->query("SELECT * FROM product");  
     
     // while($row = $queryResult->fetch(PDO::FETCH_ASSOC)){
     //     var_dump($row);

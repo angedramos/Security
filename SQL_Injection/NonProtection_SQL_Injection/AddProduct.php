@@ -2,7 +2,7 @@
 require_once 'config.php';
         error_reporting(0);
 
-        $mysqli = new mysqli('localhost', 'root', '', 'products');
+        $mysqli = new mysqli('localhost', 'root', '', 'products_sql');
         if($mysqli->connect_error){
             die('Connection Error');
         }
@@ -11,11 +11,11 @@ require_once 'config.php';
             $title = $_POST['title'];
             $description = $_POST['description'];
 
-            $sql = "INSERT INTO oldproducts(title, description) VALUES (:title, :description)";
+            $sql = "INSERT INTO product(title, description) VALUES (:title, :description)";
             $query = $pdo->prepare($sql);
             $result = $query->execute(['title'=> $title,  'description' => $description]);
 
-            $querynew = "SELECT * FROM `oldproducts` where oldproducts.title = '{$title}' and oldproducts.description = '{$description}' ;";
+            $querynew = "SELECT * FROM `product` where product.title = '{$title}' and product.description = '{$description}' ;";
             // $resultnew = mysqli_query($mysqli, $querynew); 
             $resultnew=mysqli_multi_query($mysqli, $querynew);
         }

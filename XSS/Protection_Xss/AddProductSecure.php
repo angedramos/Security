@@ -8,7 +8,7 @@ session_start();
         $description = $_POST['description'];
         $description = strip_tags($description);
         // Validation
-        $sql = "INSERT INTO modernproducts(title, description) VALUES (:title, :description)";
+        $sql = "INSERT INTO product(title, description) VALUES (:title, :description)";
         $query = $pdo->prepare($sql);
         $result = $query->execute(['title'=> $title,  'description' => $description]);
         // echo strip_tags($description);

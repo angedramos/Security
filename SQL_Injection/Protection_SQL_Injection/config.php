@@ -1,7 +1,7 @@
 <?php
 //PDO requires 3 parameters ("Database Type with DB name,"User","Password")
 $dbHost = 'localhost';
-$dbName = 'products';
+$dbName = 'products_sql';
 $dbUser = 'root';
 $dbPass = '';
 try{
