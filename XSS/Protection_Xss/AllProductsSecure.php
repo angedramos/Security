@@ -37,7 +37,7 @@ require_once 'configSecure.php';
              }
              ?>
         </table>
-        <a href="AddProductSecure.php">Add Product</a>    
+        <a href="index.php">Add Product</a>    
     </div>
 </body>
 </html>

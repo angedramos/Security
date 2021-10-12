@@ -1,21 +1,51 @@
-<html>
-<head>
-    <title>Products</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-</head>
-<style>
+<?php
+require_once 'config.php';
+        error_reporting(0);
+
+        $mysqli = new mysqli('localhost', 'root', '', 'products_sql');
+        if($mysqli->connect_error){
+            die('Connection Error');
+        }
+
+        if (!empty($_POST)){
+            $title = $_POST['title'];
+            $description = $_POST['description'];
+
+            $sql = "INSERT INTO product(title, description) VALUES (:title, :description)";
+            $query = $pdo->prepare($sql);
+            $result = $query->execute(['title'=> $title,  'description' => $description]);
+
+            $querynew = "SELECT * FROM `product` where product.title = '{$title}' and product.description = '{$description}' ;";
+            // $resultnew = mysqli_query($mysqli, $querynew); 
+            $resultnew=mysqli_multi_query($mysqli, $querynew);
+        }
+
+
+ ?>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">  
+
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <style>
     body {
       background-position: inherit;
       background-image: url('fondo3.png');
     }
     </style>
-<body>
-    <div class="container">
+    <body>
+        <form action="index.php" method="post">
         <section class="product-register">
-            <h1>Products</h1>
-            <p>Add a product by clicking <a href="AddProduct.php"><b>here</b></a></p>
+            <h1>Add Product</h1>
+            <a href="AllProducts.php">All Registered Products</a>
+            <br>
+            <input type="text" class="controls" autocomplete="off" required name="title" name="title" id="title" placeholder="Enter Title">
+            <br>
+            <textarea class="controls" required name="description" autocomplete="off" id="description" rows="3" placeholder="Enter Description"></textarea>
+            <input class="botons" type="submit" value="Save">
+        </form>
         </section>
-    </div>
-</body>
+    </body>
 </html>

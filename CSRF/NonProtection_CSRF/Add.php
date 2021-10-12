@@ -13,4 +13,4 @@ session_start();
                         $query = $pdo->prepare($sql);
                         $result = $query->execute(['title'=> $title,  'description' => $description]);
  ?>
-<a href="AddProduct.php">Add Product</a>
+<a href="index.php">Add Product</a>

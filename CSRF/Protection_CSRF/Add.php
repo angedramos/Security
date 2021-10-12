@@ -12,9 +12,6 @@ session_start();
             if(!empty($_POST['token'])){
                 if(hash_equals($_SESSION['token'], $_POST['token'])){
                     unset($_SESSION['token']);
-                    // $_SESSION['posted']=true;
-                    // $_SESSION['title']=$_POST['title'];
-                    // $_SESSION['description']=$_POST['description'];
                         $title = $_POST['title'];
                         $description = $_POST['description'];
                         $sql = "INSERT INTO product(title, description) VALUES (:title, :description)";
@@ -33,4 +30,4 @@ session_start();
             }
         }
  ?>
-<a href="AddProduct.php">Add Product</a>
+<a href="index.php">Add Product</a>

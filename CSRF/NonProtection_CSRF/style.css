@@ -10,13 +10,13 @@ body{
 
 .product-register{
     width: 400px;
-    background-color: #24303c;
+    background-color: #EF9F45;
     padding: 30px;
     margin: auto;
     margin-top: 100px;
     border-radius: 4px;
     font-family: Arial, Helvetica, sans-serif;
-    color: white;
+    color: rgb(2, 2, 2);
     box-shadow: 7px 13px 37px #000;
 }
 .product-register h1{
@@ -27,7 +27,7 @@ body{
 
 .controls{
     width: 100%;
-    background: #24303c;
+    background: #EF9F45;
     padding: 10px;
     border-radius: 4px;
     margin-top: 10px;
@@ -42,7 +42,7 @@ body{
 }
 
 .product-register a{
-    color: white;
+    color: rgb(0, 0, 0);
     text-decoration: underline;
     font-size: small;
 }
@@ -61,3 +61,4 @@ body{
     margin: 16px 0;
     font-size: 16px;
 }
+

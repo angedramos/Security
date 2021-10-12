@@ -36,7 +36,7 @@ require_once 'config.php';
              }
              ?>
         </table>
-        <a href="AddProduct.php">Add Product</a>    
+        <a href="index.php">Add Product</a>    
     </div>
 </body>
 </html>
